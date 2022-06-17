@@ -7,4 +7,10 @@ module.exports = defineConfig({
     },
     baseUrl: "https://gallery-app.vivifyideas.com/"
   },
-});
+  env: {
+    VALID_USER_EMAIL: 'milicamilica@milica.com',
+    VALID_USER_PASSWORD: 'tester123'
+  }
+  
+  })
+

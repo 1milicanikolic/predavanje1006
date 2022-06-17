@@ -3,11 +3,19 @@ class AllGalleriesPage {
         return cy.get('.nav-link').eq(1);
     }
     get searchInput() {
-        return cy.get('inpu');
+        return cy.get('input');
+    }
+
+    get allGalleriesBtn() {
+        return cy.get('.nav-link').eq(0)
+    }
+
+    get allGalleriesTitile() {
+        return cy.get('h1')
     }
 
     get searchBtn() {
-        return cy.get('button[class=btn btn-outline-secondary input-button]');
+        return cy.get('.btn').contains('Filter');
     }
 
     get singleGallery() {
@@ -34,8 +42,8 @@ class AllGalleriesPage {
         return cy.get('button[class="btn btn-custom"]')
     }
 
-    findGallery(galleryNameOrAuthor) {
-        this.searchInput.type(galleryNameOrAuthor);
+    findGallery(searchTerm) {
+        this.searchInput.type(searchTerm);
         this.searchBtn.click();
     }
 }

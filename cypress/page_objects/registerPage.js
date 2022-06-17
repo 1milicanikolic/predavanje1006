@@ -36,7 +36,7 @@ class RegisterPage {
         return cy.get('h1')
     }
 
-    get errorMsgEmailTaken() {
+    get errorMsg() {
         return cy.get('p[class="alert alert-danger"]')
     }
 
@@ -59,7 +59,7 @@ class RegisterPage {
         this.submitBtn.click();
     }
 
-    register (firstName, lastName, email, password, newPassword) {
+    register1 (firstName, lastName, email, password, newPassword) {
         this.firstNameInput.type(firstName);
         this.lastNameInput.type(lastName);
         this.emailInput.type(email);

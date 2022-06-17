@@ -12,14 +12,14 @@ class CreateGalleryPage {
     }
 
     get imageInput() {
-        return cy.get(':url')
+        return cy.get('input[type="url"]')
     }
 
     get submitBtn() {
-        return cy.get(':submit')
+        return cy.get(':submit').contains("Submit")
     }
 
-    createGallery(title, desc, url) {
+    createGallery(title, desc, imgurl) {
         this.titleInput.type(title);
         this.descInput.type(desc);
         this.imageInput.type(imgurl);

@@ -23,3 +23,36 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+const faker = require("@faker-js/faker")
+
+Cypress.Commands.add('loginViaBackend', () => {
+    cy.request({
+        method: 'POST',
+        url: 'https://gallery-api.vivifyideas.com/api/auth/login',
+        body: {
+            email: Cypress.env('VALID_USER_EMAIL'),
+            password: Cypress.env('VALID_USER_PASSWORD')
+        }
+
+
+    }).its('body').then(response=>{
+        // console.log('RESPONSE', response)
+        window.localStorage.setItem('token', response.access_token)
+    })
+
+Cypress.Commands.add('registerViaBackend', () => {
+    cy.request({
+        method: 'POST',
+        url: 'https://gallery-api.vivifyideas.com/api/auth/register',
+        body: {
+            firstName: faker.name.firstName(),
+            lastName: faker.name.lastName(),
+            email: faker.internet.email(),
+            password: faker.internet.password(),
+            passwordConf: password
+        }
+
+    })
+})
+})
